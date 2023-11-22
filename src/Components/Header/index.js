@@ -13,14 +13,10 @@ function Header(props) {
                 <nav>
                     <ul>
                         <li><Link to="/">inicio</Link></li>
-                        <li><Link to="/config">Config</Link></li>
-                        <li><Link to="/logout">Sair</Link></li>
-                        
-
-
+                      
                     </ul>
                     <div className="avatar">
-                        <img src={props.user.avatar}/>
+                        <img src={props.user.avatar} />
                         <label>{props.user.name}</label>
 
                     </div>

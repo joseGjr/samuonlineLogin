@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AreaHeader = styled.div`
-    height: 80px;
+    height: 100px;
     background-color:#040E52;
     align-items: center;
     color:white;
@@ -18,7 +18,8 @@ export const AreaHeader = styled.div`
         img{
             width:100px;
             margin-bottom: 80px
-            
+            align-items:center;
+
         }
     }
 
@@ -26,10 +27,13 @@ export const AreaHeader = styled.div`
         display:flex;
        ul{
         display:flex;
+        align-items:center;
+
     }
     li{
        list-style: none;
-       margin-left: 20px; 
+       margin-right: 50px;
+        
        a{
         text-decoration:none;
         color:white;
@@ -48,8 +52,8 @@ export const AreaHeader = styled.div`
             height: 10px;
             heldth:10px;
             border-radius:20px;
-            margin-bottom:80px
-            margin-right:30px
+            margin-bottom:30px
+            margin-right:80px
             cursor:pointer;
         }
         label{

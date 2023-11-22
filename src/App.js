@@ -9,8 +9,6 @@ import './App.css';
 
 function App() {
 
-  
-
   const [user, setUser] = useState(null);
 
   const actionLoginDataGoogle =async (u) => {
@@ -41,6 +39,8 @@ function App() {
       <Footer />
     </BrowserRouter>
   );
+
 }
+
 
 export default App;

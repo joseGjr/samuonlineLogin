@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import Api from "../../Api";
@@ -9,6 +9,8 @@ import { BtnDefault, BtnDefautIcons } from "../../Components/Styled";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import { auth } from "../../firebaseConfig";
+
 
 
 
@@ -74,7 +76,7 @@ export default ({onReceiveGoogle}) => {
                     <Container>
 
                         <img src="../../../Samu-logo.png" alt="SAMU_MOB " />
-                        <h1>Mob</h1>
+                        <h1>MOB</h1>
                         <BtnDefautIcons>
 
                             <FacebookIcon />

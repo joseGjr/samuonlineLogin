@@ -3,7 +3,7 @@ import {AreaFooter} from "./styled";
 function Footer(){
     return(
     <AreaFooter>
-    My Footer
+    
     </AreaFooter>
     );
 }

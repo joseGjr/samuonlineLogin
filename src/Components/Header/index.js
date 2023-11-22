@@ -1,6 +1,7 @@
 import React from "react";
 import { AreaHeader } from "./styled";
 import { Link } from 'react-router-dom';
+import { auth } from "../../firebaseConfig";
 
 function Header(props) {
     return (
@@ -12,7 +13,7 @@ function Header(props) {
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to="/">inicio</Link></li>
+                        <li><Link to="/">Sair </Link></li>
                       
                     </ul>
                     <div className="avatar">

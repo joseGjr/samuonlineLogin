@@ -6,6 +6,8 @@ export default () => {
     return (
         <Routes>
             <Route exact path="/" element={<Home/>}></Route>
+            
+           
            
             <Route exact path="/sobre">
                 pagina de sobre

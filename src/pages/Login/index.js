@@ -76,7 +76,7 @@ export default ({onReceiveGoogle}) => {
                     <Container>
 
                         <img src="../../../Samu-logo.png" alt="SAMU_MOB " />
-                        <h1>MOB</h1>
+                        
                         <BtnDefautIcons>
 
                             <FacebookIcon />

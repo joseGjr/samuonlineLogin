@@ -6,7 +6,7 @@ background-color:#040E52;
 padding:30px;
 max-width:300px;
 margin:auto;
-margin-top:20px;
+margin-top: 3px;
 text-align:center;
 border-radius:5px;
 box-shadow:0px 0px 10px #ccc;
@@ -31,7 +31,7 @@ h1{
     input{
         margin-bottom: 20px;
         padding: 10px;
-        font-size: 16px;
+        font-size: 12px;
         outline: none;
         border:1px solid black;
         border-radius:5px;
@@ -44,6 +44,7 @@ h1{
 }
 p{
     color:white;
+    font-size: 10px;
 }
 .footerLogin{
 

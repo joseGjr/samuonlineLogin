@@ -7,6 +7,7 @@ import Loading from "../Loading";
 import Chat from "../ChatTeste";
 import ChatTeste from "../ChatTeste";
 import Sidebar from '../SideBar'
+import Speech from "../../SpeechRecognator/Speech";
 
 const ContainerChat = () => {
   const [user, loading] = useAuthState(auth);
@@ -29,6 +30,7 @@ const ContainerChat = () => {
     <C.Container>
       <Sidebar setUserChat={setUserChat} userChat={userChat} />
       <ChatTeste userChat={userChat} />
+      
     </C.Container>
   );
 };

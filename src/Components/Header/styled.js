@@ -6,14 +6,15 @@ export const AreaHeader = styled.div`
     align-items: center;
     color:white;
 
-    .container{
+    .container {
         padding:5px 20px;
         display:flex;
         align-items:center;
         
     }
+    
 
-    .logo{
+    .logo {
         flex:1;
         img{
             width:100px;
@@ -23,13 +24,14 @@ export const AreaHeader = styled.div`
         }
     }
 
-    nav{
+    nav  {
         display:flex;
        ul{
         display:flex;
         align-items:center;
 
     }
+  
     li{
        list-style: none;
        margin-right: 50px;
@@ -45,10 +47,11 @@ export const AreaHeader = styled.div`
     .avatar{
         display:flex;
         align-items:center;
+
     
         img{
             border-radius:20px;
-            width:20px
+            width: 5px
             height: 10px;
             heldth:10px;
             border-radius:20px;
@@ -61,6 +64,7 @@ export const AreaHeader = styled.div`
             cursor:pointer
             color: #ccc;
         }
+      
         @media screen and (max-width:60)
     }
 `;

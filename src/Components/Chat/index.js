@@ -12,13 +12,9 @@ export const ChatRoom = () => {
     const [user] = useAuthState(auth);
 
     return (
-        <AreaChat>
-            {/* <ChatHeader/> */}
-            {/* <Chat/> */}
-            <ContainerChat/>
-          
-        </AreaChat>
-
+        <>
+        <ContainerChat/>
+        </>
     );
 };
 export default ChatRoom;

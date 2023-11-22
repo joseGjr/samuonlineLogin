@@ -25,25 +25,34 @@ const ChatFooter = ({ chatId }) => {
   };
 
 
-  const{
+  const {
     transcript,
     resetTranscript,
     browserSupportsSpeechRecognition
-}= useSpeechRecognition();
+  } = useSpeechRecognition();
 
 
   return (
+    
     <C.Container>
-       <C.Form onSubmit={handleSendMessage}>
+      <C.Form onSubmit={handleSendMessage}>
         <C.Input
-          placeholder ="Digite uma mensagem"
+          id="clearInputMessage"
+          placeholder="Mensagem"
           onChange={(e) => setMessage(e.target.value)}
-          value={message}
+          value={message.length > 0 ? message : transcript}
         />
-        <MdSend onClick={handleSendMessage} />
+        <MdSend
+          onClick={handleSendMessage}
+        />
+        <Speech />
+
+
       </C.Form>
-      <Speech />
+
     </C.Container>
+
+    
   );
 };
 

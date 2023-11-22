@@ -3,6 +3,7 @@ import { FaTrash } from "react-icons/fa";
 import { MdOutlineRecordVoiceOver, MdOutlineVoiceOverOff } from "react-icons/md";
 import SpeechRecognition,{useSpeechRecognition} from "react-speech-recognition";
 import styles from './style.css';
+import { Message } from "@mui/icons-material";
 
 export default function Speech(){
     const{
@@ -21,27 +22,18 @@ export default function Speech(){
            
         }}>
 
-            {/* <h1>{transcript}</h1> */}
+           
 
 
-            <button style={{
-                 background:'none',
-                 border:'none',
-            }} onClick={SpeechRecognition.startListening}>
-                <MdOutlineRecordVoiceOver size={20} />
+            <button onClick={SpeechRecognition.startListening}>
+                <MdOutlineRecordVoiceOver size={20}  />
             </button>
 
-            <button style={{
-                 background:'none',
-                 border:'none',
-            }} onClick={SpeechRecognition.stopListening}>
+            <button onClick={SpeechRecognition.stopListening}>
                 <MdOutlineVoiceOverOff size={20} />
             </button>
 
-            <button style={{
-                 background:'none',
-                 border:'none',
-            }} onClick={resetTranscript}>
+            <button  onClick={resetTranscript}>
             <FaTrash size={10}/>
             </button>
 

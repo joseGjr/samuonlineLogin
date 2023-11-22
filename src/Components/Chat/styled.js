@@ -65,15 +65,11 @@ body {
     bottom: 0;
     background-color: rgb(24, 23, 23);
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     display: flex;
     font-size: 1.5rem;
   }
-  
-  form button {
-    width: 20%;
-    background-color: rgb(56, 56, 143);
-  }
+
   
   input {
     line-height: 1.5;
@@ -86,17 +82,7 @@ body {
     padding: 0 10px;
   }
   
-  button {
-    background-color: #282c34; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-size: 1.25rem;
-  }
+ 
   
   button:disabled {
     opacity: 0.5;
@@ -151,6 +137,13 @@ body {
     height: 40px;
     border-radius: 50%;
     margin: 2px 5px;
+  }
+
+
+  form .buttonRecordVoice{
+    background-color: none;
+    border:none;
+    outilene:none;
   }
 }
 `;

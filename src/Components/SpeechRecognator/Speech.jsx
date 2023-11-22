@@ -1,24 +1,51 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
+import { MdOutlineRecordVoiceOver, MdOutlineVoiceOverOff } from "react-icons/md";
 import SpeechRecognition,{useSpeechRecognition} from "react-speech-recognition";
+import styles from './style.css';
 
-export const Speech = () =>{
+export default function Speech(){
     const{
         transcript,
         resetTranscript,
         browserSupportsSpeechRecognition
     }= useSpeechRecognition()
 
+    
     if(!browserSupportsSpeechRecognition)return(<span> Seu navegador não é compativel com SpeechRecognition.</span>)
     return(
-        <div>
+        <div style={{
+            display:'flex',
+            alignItems:'center',
+            gap:'.5rem',
+           
+        }}>
 
-        <h1>{transcript}</h1>
+            {/* <h1>{transcript}</h1> */}
 
-        <button onClick={SpeechRecognition.startListening}>Gravar</button>
-        <button onClick={SpeechRecognition.stopListening}>Parar</button>
-        <button onClick={resetTranscript}>Reset campo</button>
+
+            <button style={{
+                 background:'none',
+                 border:'none',
+            }} onClick={SpeechRecognition.startListening}>
+                <MdOutlineRecordVoiceOver size={20} />
+            </button>
+
+            <button style={{
+                 background:'none',
+                 border:'none',
+            }} onClick={SpeechRecognition.stopListening}>
+                <MdOutlineVoiceOverOff size={20} />
+            </button>
+
+            <button style={{
+                 background:'none',
+                 border:'none',
+            }} onClick={resetTranscript}>
+            <FaTrash size={10}/>
+            </button>
 
         </div>
     )
 }
-export default Speech;
+

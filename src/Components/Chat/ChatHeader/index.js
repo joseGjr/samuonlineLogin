@@ -1,6 +1,7 @@
 import React from "react";
 import * as C from "./styles";
 import { MdPerson, MdMoreVert, MdSearch } from "react-icons/md";
+import { Email } from "@mui/icons-material";
 
 const ChatHeader = ({ photoURL, name }) => {
   return (
@@ -12,8 +13,7 @@ const ChatHeader = ({ photoURL, name }) => {
         </C.NameContent>
       </C.UserInfo>
       <C.Options>
-        <MdSearch />
-        <MdMoreVert />
+       
       </C.Options>
     </C.Container>
   );

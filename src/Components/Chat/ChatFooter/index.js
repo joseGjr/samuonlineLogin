@@ -5,7 +5,6 @@ import { auth, db } from "../../../services/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "firebase/compat/app";
 import Speech from "../../SpeechRecognator/Speech";
-import { FaTrash } from "react-icons/fa";
 import { useSpeechRecognition } from "react-speech-recognition";
 
 const ChatFooter = ({ chatId }) => {
@@ -25,29 +24,25 @@ const ChatFooter = ({ chatId }) => {
     setMessage("");
   };
 
+
   const{
     transcript,
     resetTranscript,
     browserSupportsSpeechRecognition
 }= useSpeechRecognition();
 
-console.log({transcript})
 
   return (
     <C.Container>
-      <C.Form onSubmit={handleSendMessage}>
+       <C.Form onSubmit={handleSendMessage}>
         <C.Input
-        id="clearInputMessage"
-          placeholder="Mensagem"
+          placeholder ="Digite uma mensagem"
           onChange={(e) => setMessage(e.target.value)}
-          value={ message.length > 0 ?  message :  transcript }
+          value={message}
         />
-        <MdSend 
-        onClick={handleSendMessage} 
-        />
-       
-          <Speech />
+        <MdSend onClick={handleSendMessage} />
       </C.Form>
+      <Speech />
     </C.Container>
   );
 };

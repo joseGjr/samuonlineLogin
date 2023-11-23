@@ -6,10 +6,9 @@ const Default = () => {
   return (
     <C.Container>
       <MdMessage />
-      <C.Title>Chat App</C.Title>
+      <C.Title>SAMU São Luis- MA</C.Title>
       <C.Info>
-        Agora você pode enviar e receber mensagens sem precisar manter seu
-        celular conectado à internet.
+        SAMU_MOB acessível com a prioridade de salvar vidas!
       </C.Info>
     </C.Container>
   );

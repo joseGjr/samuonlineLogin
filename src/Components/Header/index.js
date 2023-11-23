@@ -1,29 +1,43 @@
 import React from "react";
 import { AreaHeader } from "./styled";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { auth } from "../../firebaseConfig";
 
 function Header(props) {
-    return (
-        <AreaHeader>
-            <div className="container">
-                <div className="logo">
-                    <img src="../../../Samu-logo.png"></img>
+  const navigate = useNavigate();
 
-                </div>
-                <nav>
-                    <ul>
-                        <li><Link to="/">Sair </Link></li>
-                      
-                    </ul>
-                    <div className="avatar">
-                        <img src={props.user.avatar} />
-                        <label>{props.user.name}</label>
+  const handleLogout = () => {
+    auth.signOut()
+      .then(() => {
+        console.log('Logout bem-sucedido');
+        // Redirecionar para a página completa
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error('Erro durante o logout:', error);
+      });
+  };
 
-                    </div>
-                </nav>
-            </div>
-        </AreaHeader>
-    )
+  return (
+    <AreaHeader>
+      <div className="container">
+        <div className="logo">
+          <img src="../../../Samu-logo.png" alt="SAMU_MOB" />
+        </div>
+        <nav>
+        <div className="avatar">
+
+            <img src={props.user.avatar} alt="Avatar do usuário" />
+            <label>{props.user.name}</label>
+          </div>
+          <ul>
+            <li onClick={handleLogout}>Sair</li>
+          </ul>
+         
+        </nav>
+      </div>
+    </AreaHeader>
+  );
 }
+
 export default Header;

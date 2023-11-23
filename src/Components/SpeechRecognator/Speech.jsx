@@ -85,7 +85,7 @@ const SpeechRecognitionComponent = ({ onRecognizedTextChange }) => {
 
   return (
     <div className='voice'>
-      <input type="text" placeholder={recognizedText} />
+      
       <button onClick={startRecognition} disabled={isListening}>
         <MdOutlineRecordVoiceOver />
       </button>

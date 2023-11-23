@@ -31,8 +31,8 @@ const ChatFooter = ({ chatId }) => {
       <C.Form onSubmit={handleSendMessage}>
         <C.Input
           placeholder="Digite sua mensagem"
-          onChange={(e) => setMessage(e.target.value)}
-          value={message}
+          onChange={(e) => setMessage && setRecognizedText (e.target.value)}
+          value={message || recognizedText}
         />
         <MdSend onClick={handleSendMessage} />
         <SpeechRecognitionComponent onRecognizedTextChange={setRecognizedText} />

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AreaHeader } from "../../Components/Header/styled";
 
 export const Container = styled.div`
 

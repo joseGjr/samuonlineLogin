@@ -1,43 +1,102 @@
-import React from "react";
-import { FaTrash } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from 'react';
 import { MdOutlineRecordVoiceOver, MdOutlineVoiceOverOff } from "react-icons/md";
-import SpeechRecognition,{useSpeechRecognition} from "react-speech-recognition";
-import styles from './style.css';
-import { Message } from "@mui/icons-material";
+import { FaRegTrashAlt } from "react-icons/fa";
+import './style.css';
 
-export default function Speech(){
-    const{
-        transcript,
-        resetTranscript,
-        browserSupportsSpeechRecognition
-    }= useSpeechRecognition()
+const SpeechRecognitionComponent = ({ onRecognizedTextChange }) => {
+  const [isListening, setIsListening] = useState(false);
+  const [recognizedText, setRecognizedText] = useState('');
+  const recognitionRef = useRef(null);
 
-    
-    if(!browserSupportsSpeechRecognition)return(<span> Seu navegador não é compativel com SpeechRecognition.</span>)
-    return(
-        <div style={{
-            display:'flex',
-            alignItems:'center',
-            gap:'.5rem',
-           
-        }}>
+  useEffect(() => {
+    const initRecognition = () => {
+      if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        recognitionRef.current = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognitionRef.current.continuous = true;
+        recognitionRef.current.interimResults = true;
 
-           
+        recognitionRef.current.onstart = () => {
+          setIsListening(true);
+        };
 
+        recognitionRef.current.onend = () => {
+          setIsListening(false);
+        };
 
-            <button onClick={SpeechRecognition.startListening}>
-                <MdOutlineRecordVoiceOver size={20}  />
-            </button>
+        recognitionRef.current.onresult = (event) => {
+          const transcript = Array.from(event.results)
+            .map((result) => result[0].transcript)
+            .join('');
 
-            <button onClick={SpeechRecognition.stopListening}>
-                <MdOutlineVoiceOverOff size={20} />
-            </button>
+          setRecognizedText(transcript);
+          onRecognizedTextChange(transcript);
+        };
+      } else {
+        alert('Desculpe, o reconhecimento de voz não é suportado neste navegador.');
+      }
+    };
 
-            <button  onClick={resetTranscript}>
-            <FaTrash size={10}/>
-            </button>
+    const checkPermission = async () => {
+      try {
+        const result = await navigator.permissions.query({ name: 'microphone' });
+        return result.state === 'granted';
+      } catch (error) {
+        console.error('Erro ao verificar permissões:', error);
+        return false;
+      }
+    };
 
-        </div>
-    )
-}
+    const initializeRecognition = async () => {
+      const hasPermission = await checkPermission();
+      if (!hasPermission) {
+        alert('Por favor, conceda permissão para acessar o microfone.');
+        return;
+      }
 
+      initRecognition();
+    };
+
+    initializeRecognition();
+
+    return () => {
+      if (recognitionRef.current) {
+        recognitionRef.current.onstart = null;
+        recognitionRef.current.onend = null;
+        recognitionRef.current.onresult = null;
+      }
+    };
+  }, [onRecognizedTextChange]);
+
+  const startRecognition = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.start();
+    }
+  };
+
+  const stopRecognition = () => {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+    }
+  };
+
+  const resetRecognition = () => {
+    setRecognizedText('');
+  };
+
+  return (
+    <div className='voice'>
+      <input type="text" placeholder={recognizedText} />
+      <button onClick={startRecognition} disabled={isListening}>
+        <MdOutlineRecordVoiceOver />
+      </button>
+      <button onClick={stopRecognition} disabled={!isListening}>
+        <MdOutlineVoiceOverOff />
+      </button>
+      <button onClick={resetRecognition} disabled={!recognizedText}>
+        <FaRegTrashAlt />
+      </button>
+    </div>
+  );
+};
+
+export default SpeechRecognitionComponent;

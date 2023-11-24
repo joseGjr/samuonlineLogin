@@ -6,8 +6,6 @@ export const AreaHeader = styled.div`
   display: flex;
   color: white;
 
- 
-
   .container {
     padding: 5px 20px;
     display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-
+{/*corpo do chat - dimencionando  container chat */}
 export const Container = styled.div`
-  height: calc(100vh - 70px);
+  height: calc(70vh - 70px);
   overflow-y: auto;
 
   &::-webkit-scrollbar {

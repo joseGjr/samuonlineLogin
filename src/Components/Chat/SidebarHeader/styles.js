@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+{/* pagina lateral do chat >> usuario , salas */}
 export const Container = styled.div`
   height: 30px;
   background-color: #f0f2f5;
@@ -9,6 +9,8 @@ export const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 5px;
   box-shadow: 0 1px 2px #0003;
+  
+ 
 `;
 
 export const Avatar = styled.img`

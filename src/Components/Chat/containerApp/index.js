@@ -4,10 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../../services/firebase";
 import Login from "../Login";
 import Loading from "../Loading";
-import Chat from "../ChatTeste";
 import ChatTeste from "../ChatTeste";
 import Sidebar from '../SideBar'
-import Speech from "../../SpeechRecognator/Speech";
 
 const ContainerChat = () => {
   const [user, loading] = useAuthState(auth);

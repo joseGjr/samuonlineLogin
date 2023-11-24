@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Api from "../../Api";
 
 import { Container } from '../Login/styled';
